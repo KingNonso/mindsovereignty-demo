@@ -18,5 +18,5 @@ The audit history is stored in this browser's `localStorage` and can be exported
 
 ## Public hosting
 
-The files can be hosted as a static site. Publish only this prototype folder to a separate public repository or static host; keep application worksheets and private interview notes out of that deployment. Test the deployed URL in a private browser window, on mobile and with keyboard navigation before citing it in an LOI. The public README should keep the limitations above visible.
+The [public demo](https://kingnonso.github.io/mindsovereignty-demo/) is hosted from a [separate public repository](https://github.com/KingNonso/mindsovereignty-demo/). Only this prototype folder was published; application worksheets and private interview notes remain out of that repository. The deployed grant → request → withdrawal → denial path passed in a fresh mobile browser on 4 November 2026. Keep the limits above visible when sharing the link.
 
