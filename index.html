@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c2523" />
+    <title>MindSovereignty — synthetic governance demo</title>
+    <meta
+      name="description"
+      content="A synthetic demonstration of individual consent, community approval, benefit acknowledgement and auditable access decisions."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.mjs"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to demo</a>
+    <header class="hero">
+      <div class="shell">
+        <div class="eyebrow">MindSovereignty / concept prototype</div>
+        <h1>Who decides how community data is used?</h1>
+        <p class="hero-copy">
+          Try a simple decision flow: a participant grants permission, a community
+          steward sets a rule, and a requester asks for access. Every decision is
+          visible in the log.
+        </p>
+        <div class="hero-facts" aria-label="Demo boundaries">
+          <span>Synthetic participants</span>
+          <span>Browser-only state</span>
+          <span>No health records</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="shell main-content">
+      <div class="notice" role="note">
+        <strong>Demonstration only.</strong> This page models a proposed governance
+        interaction. It does not store or grant access to real data, verify a
+        person's identity, represent community endorsement, or implement a
+        production security boundary.
+      </div>
+
+      <section class="intro" aria-labelledby="try-title">
+        <div>
+          <div class="eyebrow dark">The decision path</div>
+          <h2 id="try-title">Try it in three steps</h2>
+        </div>
+        <p>
+          Grant permission for Participant A, record a request with a benefit
+          agreement, then withdraw permission and retry. The earlier decision
+          stays in the audit history; the new request is denied.
+        </p>
+      </section>
+
+      <div class="card-grid">
+        <section class="card" aria-labelledby="participant-title">
+          <div class="step-number">01 / Individual</div>
+          <h3 id="participant-title">Participant permission</h3>
+          <p>Give or withdraw permission for a specific use. Each action is recorded.</p>
+          <label for="consent-person">Synthetic participant</label>
+          <select id="consent-person"></select>
+          <label for="consent-purpose">Proposed use</label>
+          <select id="consent-purpose"></select>
+          <div class="state-line">
+            Current permission: <strong id="consent-status">—</strong>
+          </div>
+          <div class="button-row">
+            <button id="grant-consent" class="button primary" type="button">Grant permission</button>
+            <button id="withdraw-consent" class="button secondary" type="button">Withdraw</button>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="community-title">
+          <div class="step-number">02 / Collective</div>
+          <h3 id="community-title">Community rule</h3>
+          <p>
+            This simulated steward control stands in for a community process.
+            The real decision maker and process must be co-designed.
+          </p>
+          <label for="community-purpose">Proposed use</label>
+          <select id="community-purpose"></select>
+          <div class="state-line">
+            Current rule: <strong id="community-status">—</strong>
+          </div>
+          <div class="button-row">
+            <button id="approve-community" class="button primary" type="button">Approve use</button>
+            <button id="suspend-community" class="button secondary" type="button">Suspend use</button>
+          </div>
+          <p class="microcopy">Commercial profiling and resale remain blocked by this example charter.</p>
+        </section>
+
+        <section class="card request-card" aria-labelledby="request-title">
+          <div class="step-number">03 / Access</div>
+          <h3 id="request-title">Check an access request</h3>
+          <p>
+            The request needs individual permission, community approval and a
+            recorded benefit agreement. This demo checks only those stated conditions.
+          </p>
+          <form id="request-form">
+            <div class="form-grid">
+              <div>
+                <label for="requester">Example requester</label>
+                <select id="requester"></select>
+              </div>
+              <div>
+                <label for="request-person">Synthetic participant</label>
+                <select id="request-person"></select>
+              </div>
+              <div>
+                <label for="request-purpose">Proposed use</label>
+                <select id="request-purpose"></select>
+              </div>
+              <label class="check-row" for="benefit-agreement">
+                <input id="benefit-agreement" type="checkbox" />
+                <span>Simulate a recorded community benefit agreement</span>
+              </label>
+            </div>
+            <button class="button primary" type="submit">Check and record request</button>
+          </form>
+          <div id="decision" class="decision" aria-live="polite">
+            No request checked yet.
+          </div>
+        </section>
+      </div>
+
+      <section class="audit-section" aria-labelledby="audit-title">
+        <div class="audit-heading">
+          <div>
+            <div class="eyebrow dark">Visible history</div>
+            <h2 id="audit-title">Decision log</h2>
+            <p>Entries are append-only within this local demo until you reset it.</p>
+          </div>
+          <div class="button-row">
+            <button id="export-log" class="button secondary" type="button">Export JSON</button>
+            <button id="reset-demo" class="button ghost" type="button">Reset demo</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Time</th>
+                <th scope="col">Action</th>
+                <th scope="col">Subject and use</th>
+                <th scope="col">Decision</th>
+              </tr>
+            </thead>
+            <tbody id="audit-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">What this prototype leaves open</h2>
+        <div class="limits-grid">
+          <p><strong>Community authority.</strong> The host and community must define who participates, how decisions are made and how dissent is handled.</p>
+          <p><strong>Real enforcement.</strong> A production system needs identity, access controls, security review and legal/ethical approvals before handling sensitive records.</p>
+          <p><strong>Withdrawal.</strong> Here it blocks future requests. It cannot undo a past disclosure or remove data from an already trained model.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="footer shell">
+      <span>MindSovereignty · working concept for Mozilla Foundation Fellowship 2027–2028</span>
+      <span>Built with synthetic data for discussion.</span>
+    </footer>
+  </body>
+</html>
+

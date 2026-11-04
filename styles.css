@@ -1,0 +1,86 @@
+:root {
+  color-scheme: light;
+  --ink: #12302e;
+  --ink-soft: #49625c;
+  --paper: #f5f4ee;
+  --card: #fffefa;
+  --line: #d4ded5;
+  --teal: #155e56;
+  --teal-deep: #0c2523;
+  --mint: #cbead5;
+  --gold: #eac585;
+  --red: #8c3f36;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.55; }
+.shell { width: min(1120px, calc(100% - 2.4rem)); margin-inline: auto; }
+.skip-link { position: absolute; top: -100px; left: 1rem; padding: .7rem 1rem; background: white; color: var(--ink); z-index: 5; }
+.skip-link:focus { top: 1rem; }
+.hero { background: radial-gradient(circle at 85% 15%, #226e5f 0, transparent 30%), var(--teal-deep); color: #f5fff7; padding: 4.5rem 0 3.8rem; }
+.eyebrow { color: var(--gold); font-size: .76rem; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+.eyebrow.dark { color: var(--teal); }
+h1, h2, h3, p { margin-top: 0; }
+h1 { max-width: 760px; margin: .7rem 0 1.2rem; font-size: clamp(2.4rem, 6vw, 4.7rem); line-height: 1.05; letter-spacing: -.055em; }
+h2 { font-size: clamp(1.65rem, 2.7vw, 2.25rem); line-height: 1.15; letter-spacing: -.035em; margin: .4rem 0 0; }
+h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -.025em; margin: .55rem 0 .65rem; }
+.hero-copy { max-width: 690px; font-size: 1.12rem; color: #d0e7dd; }
+.hero-facts { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 2rem; }
+.hero-facts span { border: 1px solid #638b7a; border-radius: 999px; padding: .33rem .8rem; font-size: .8rem; color: #d7efe4; }
+.main-content { padding-top: 2rem; }
+.notice { border-left: 4px solid var(--teal); background: #e8f2e8; padding: 1rem 1.2rem; font-size: .91rem; }
+.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: end; margin: 3.4rem 0 1.4rem; }
+.intro p { max-width: 490px; margin-bottom: 0; color: var(--ink-soft); }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.card { border: 1px solid var(--line); background: var(--card); border-radius: 12px; padding: 1.5rem; box-shadow: 0 7px 24px #163d320b; }
+.card p { color: var(--ink-soft); font-size: .91rem; max-width: 65ch; }
+.card.request-card { grid-column: 1 / -1; }
+.step-number { color: var(--teal); font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+label { display: block; margin: 1rem 0 .35rem; font-weight: 680; font-size: .87rem; }
+select { width: 100%; min-height: 2.7rem; padding: .55rem .7rem; border: 1px solid #aabfb2; border-radius: 7px; background: white; color: var(--ink); font: inherit; }
+select:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #f0b753; outline-offset: 2px; }
+.state-line { margin-top: 1.35rem; padding: .7rem .85rem; background: #f0f5ef; border-radius: 7px; font-size: .9rem; }
+.status.allowed, .allowed-cell { color: #145c3f; }
+.status.denied, .denied-cell { color: var(--red); }
+.button-row { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; margin-top: 1.1rem; }
+.button { min-height: 2.55rem; border: 1px solid transparent; border-radius: 7px; padding: .58rem .9rem; font: inherit; font-size: .88rem; font-weight: 700; cursor: pointer; }
+.button.primary { color: white; background: var(--teal); }
+.button.primary:hover { background: #0d423e; }
+.button.secondary { color: var(--teal-deep); background: white; border-color: #9eb5a9; }
+.button.secondary:hover, .button.ghost:hover { background: #e9f0e8; }
+.button.ghost { color: var(--red); background: transparent; border-color: #d6aea6; }
+.microcopy { font-size: .78rem !important; margin: .9rem 0 0; }
+.form-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; max-width: 920px; }
+.check-row { display: flex; align-items: start; gap: .65rem; grid-column: 1 / -1; margin: .5rem 0 .3rem; font-weight: 500; }
+.check-row input { margin-top: .32rem; width: 1.05rem; height: 1.05rem; accent-color: var(--teal); }
+.decision { margin-top: 1.3rem; padding: .9rem 1rem; border-radius: 7px; border: 1px solid var(--line); background: #f3f6f1; font-size: .9rem; }
+.decision-allowed { border-color: #93c5a7; background: #e9f5eb; color: #16533b; }
+.decision-denied { border-color: #d9aea5; background: #fcf0eb; color: #70382f; }
+.audit-section { margin: 3.6rem 0; }
+.audit-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1.1rem; }
+.audit-heading p { color: var(--ink-soft); margin: .55rem 0 0; font-size: .9rem; }
+.audit-heading .button-row { margin-top: 0; }
+.table-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; min-width: 720px; font-size: .86rem; }
+th, td { text-align: left; padding: .82rem .9rem; border-bottom: 1px solid #e1e7df; vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { background: #eef3eb; font-size: .74rem; letter-spacing: .07em; text-transform: uppercase; }
+.empty-log { color: var(--ink-soft); text-align: center; padding: 2rem; }
+.limits { border-top: 1px solid var(--line); padding: 2rem 0 3.5rem; }
+.limits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.25rem; }
+.limits-grid p { font-size: .88rem; color: var(--ink-soft); }
+.limits-grid strong { color: var(--ink); }
+.footer { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-block: 1.35rem 2rem; color: var(--ink-soft); font-size: .78rem; }
+@media (max-width: 750px) {
+  .hero { padding: 3.5rem 0 3rem; }
+  .intro, .card-grid, .limits-grid { grid-template-columns: 1fr; }
+  .intro { gap: .8rem; margin-top: 2.6rem; }
+  .card.request-card { grid-column: 1; }
+  .form-grid { grid-template-columns: 1fr; gap: .15rem; }
+  .check-row { grid-column: 1; margin-top: 1rem; }
+  .audit-heading, .footer { align-items: start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
